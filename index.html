@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoreboard Voli</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scoreboard">
+    <header class="topbar">
+      <button class="team-name name-blue" id="nameA" title="Ubah nama tim">SPPG</button>
+      <div class="clock-display" id="clock">00:00</div>
+      <button class="team-name name-yellow" id="nameB" title="Ubah nama tim">PEMDES</button>
+    </header>
+
+    <section class="score-area">
+      <article class="team-panel panel-blue">
+        <div class="team-caption" id="captionA">SPPG</div>
+        <button class="score" id="scoreA" title="Klik untuk tambah poin">00</button>
+        <button class="point-button" id="addA">+ POIN</button>
+      </article>
+
+      <section class="center-controls">
+        <div class="sets-row">
+          <div class="set-card set-blue">
+            <span class="set-label" id="setLabelA">SPPG</span>
+            <strong id="setsA">0</strong>
+            <button class="set-add" id="addSetA" title="Tambah kemenangan set tim biru">+</button>
+            <button class="set-undo" id="undoSetA" title="Undo kemenangan set tim biru">−</button>
+          </div>
+          <div class="set-card set-yellow">
+            <span class="set-label" id="setLabelB">PEMDES</span>
+            <strong id="setsB">0</strong>
+            <button class="set-add" id="addSetB" title="Tambah kemenangan set tim kuning">+</button>
+            <button class="set-undo" id="undoSetB" title="Undo kemenangan set tim kuning">−</button>
+          </div>
+        </div>
+        <div class="set-caption">KEMENANGAN SET</div>
+
+        <div class="control-grid">
+          <button class="icon-button" id="undoPoints" title="Undo poin pertandingan">↶ <small>UNDO POIN</small></button>
+          <button class="icon-button" id="undoSet" title="Undo aksi set terakhir">↶ <small>UNDO SET</small></button>
+          <button class="icon-button" id="switch" title="Tukar posisi tim">⇄</button>
+          <button class="icon-button" id="nextSet" title="Mulai set berikutnya">＋</button>
+          <button class="icon-button" id="resetPoints" title="Reset poin pertandingan">⟳</button>
+          <button class="icon-button" id="resetMatch" title="Reset seluruh pertandingan">⚙</button>
+        </div>
+        <div class="set-indicator" id="setIndicator">SET 1</div>
+        <p class="hint">Undo poin dan undo kemenangan set bekerja secara terpisah.</p>
+      </section>
+
+      <article class="team-panel panel-yellow">
+        <div class="team-caption" id="captionB">PEMDES</div>
+        <button class="score" id="scoreB" title="Klik untuk tambah poin">00</button>
+        <button class="point-button" id="addB">+ POIN</button>
+      </article>
+    </section>
+
+    <footer><span id="status">Pertandingan siap dimulai</span><span>VOLLEYBALL SCOREBOARD</span></footer>
+  </main>
+
+  <dialog id="nameDialog">
+    <form id="nameForm">
+      <h2>Kustomisasi Nama Tim</h2>
+      <label for="inputA">Nama tim biru</label><input id="inputA" maxlength="18" value="SPPG" required>
+      <label for="inputB">Nama tim kuning</label><input id="inputB" maxlength="18" value="PEMDES" required>
+      <div class="dialog-actions">
+        <button type="button" class="secondary" id="cancelNames">Batal</button>
+        <button type="submit" class="primary">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="confirmDialog">
+    <form method="dialog">
+      <h2>Reset pertandingan?</h2>
+      <p>Semua poin dan kemenangan set akan dihapus.</p>
+      <div class="dialog-actions">
+        <button class="secondary" value="cancel">Batal</button>
+        <button class="danger" id="confirmReset" value="confirm">Reset</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
